@@ -1,14 +1,13 @@
 ## What
 
-Boilerplate serverless function to enable Stripe Subscriptions.
+Boilerplate serverless function to enable AWS Lex voice chat bot to interact with BigCommerce store
 
 ## What does this application do?
 
-The application is using BigCommerce webhooks to send Order data to a serverless function to determine if the user purchased a subscription product and should be enrolled in a Stripe subscription.
-
+This Application connects with the AWS Lex Chat bot and is able to make orders on BigCommerce
 ## Contributing
 
-George FitzGibbons
+Amir Hessabi
 
 ### Running the project
 
@@ -53,11 +52,4 @@ sls deploy
 ```
 
 
-
-
-You will get an API endpoint back, you will use this when you set up your webhook.
-
-```
-endpoints:
-  POST - https://{XXXXXX}.execute-api.us-east-1.amazonaws.com/dev/stripeManager
 ```
