@@ -6,9 +6,9 @@ functions:
   stripeManager:
     handler: handler.lexbcOrder
     environment:
-      STORE_HASH: 6x6lyrtwg6
-      BC_CLIENT: trw863kgoub6j5kekirsstjcj5dio11
-      BC_TOKEN: 81ojdsjoppj62yrkppck89d35csypnd
+      STORE_HASH: qr7vc8lai3
+      BC_CLIENT: tdnngiw0zcki95absltyl7tki4pbge4
+      BC_TOKEN: hn3whpt4alz4s32zcr0dsyvizaz029h
     events:
       - http:
           path: lexbcOrder
