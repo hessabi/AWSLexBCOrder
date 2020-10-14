@@ -1,0 +1,16 @@
+service: aws-nodejs
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  stripeManager:
+    handler: handler.lexbcOrder
+    environment:
+      STORE_HASH: 6x6lyrtwg6
+      BC_CLIENT: trw863kgoub6j5kekirsstjcj5dio11
+      BC_TOKEN: 81ojdsjoppj62yrkppck89d35csypnd
+    events:
+      - http:
+          path: lexbcOrder
+          method: post
+          cors: true
