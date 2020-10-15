@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "node-bigcommerce": "^4.0.1",
+    "node-bigcommerce": "^4.1.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "lodash": "^4.17.19"

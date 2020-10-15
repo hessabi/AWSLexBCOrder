@@ -10,54 +10,52 @@ const bigCommerce = new BigCommerce({
   apiVersion: "v2"
 });
 
-async function createBCOrder(product) {
-  try{
-    const resData = await bigCommerce.post('/orders', {
-      body: JSON.stringify({
+async function createBCOrder() {
 
-        "status_id": 0,
-        "customer_id": 11,
-        "billing_address": {
-          "first_name": "Jane",
-          "last_name": "Doe",
-          "street_1": "123 Main Street",
-          "city": "Austin",
-          "state": "Texas",
-          "zip": "78751",
-          "country": "United States",
-          "country_iso2": "US",
-          "email": "janedoe@email.com"
-        },
-        "shipping_addresses": [
-          {
-            "first_name": "Jane",
-            "last_name": "Doe",
-            "company": "Acme Pty Ltd",
+    try{
+      const resData = await bigCommerce.post('/orders', {
+        body: {
+          "status_id": 8,
+          "customer_id": 1,
+          "billing_address": {
+            "first_name": "Amir",
+            "last_name": "Hessabi",
             "street_1": "123 Main Street",
             "city": "Austin",
             "state": "Texas",
             "zip": "78751",
             "country": "United States",
             "country_iso2": "US",
-            "email": "janedoe@email.com"
-          }
-        ],
-        "products": [
-          {
-            "name": product,
-            "quantity": 1,
-            "price_inc_tax": 10.98,
-            "price_ex_tax": 10
-          }
-        ]
-
+            "email": "amir.hessabi@bigcommerce.com"
+          },
+          "shipping_addresses": [
+            {
+              "first_name": "Amir",
+              "last_name": "Hessabi",
+              "company": "BigCommerce",
+              "street_1": "123 Main Street",
+              "city": "Austin",
+              "state": "Texas",
+              "zip": "78751",
+              "country": "United States",
+              "country_iso2": "US",
+              "email": "amir.hessabi@bigcommerce.com"
+            }
+          ],
+          "products": [
+            {
+              "product_id": 112,
+              "quantity": 2
+            }
+          ]
+        }
       })
-    })
-    console.log("resData",resData);
-    return resData;
-  } catch(err){
-    console.error(err);
-  }
+      console.log("resData",resData);
+      return resData;
+    } catch(err){
+      console.error(err);
+    }
+
 }
 
 
@@ -70,7 +68,7 @@ module.exports.lexbcOrder = async (event, context, callback) => {
 
     if(productType !== ""){
       console.log("productType", productType);
-      const createOrder = await createBCOrder(productType);
+      const createOrder = await createBCOrder();
       console.log("createOrder", createOrder);
 
 
