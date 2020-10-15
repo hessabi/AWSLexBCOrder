@@ -11,7 +11,7 @@ async function createBCOrder(product) {
       "X-Auth-Client": process.env.BC_CLIENT,
       "X-Auth-Token": process.env.BC_TOKEN
     },
-    body: {
+    body: JSON.stringify({
 
       "status_id": 0,
       "customer_id": 11,
@@ -49,7 +49,7 @@ async function createBCOrder(product) {
         }
       ]
 
-    }
+    })
   };
   var transactionData = await request(options);
   console.log("transaction", transactionData);
@@ -60,11 +60,10 @@ async function createBCOrder(product) {
 module.exports.lexbcOrder = async (event, context, callback) => {
 
   try{
-    var productType = event.currentIntent.slots.productType;
+    var productType = JSON.stringify(event.currentIntent.slots.ProductType);
 
     console.log("productType", productType);
 
-    if(productType !== null){
       const createOrder = await createBCOrder(productType);
       console.log("createOrder", createOrder);
 
@@ -79,10 +78,10 @@ module.exports.lexbcOrder = async (event, context, callback) => {
           }
         }
       })
-    }
 
 
-  } catch (error) {
+
+  } catch (err) {
     callback(null, {
       "dialogAction": {
         "type": "Close",
