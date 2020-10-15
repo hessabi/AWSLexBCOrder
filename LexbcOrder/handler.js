@@ -68,29 +68,42 @@ async function createBCOrder(product) {
 
 module.exports.lexbcOrder = async function (event, context, callback) => {
 
-  var serviceType = event.currentIntent.slots.serviceType,
-      service = "We don't offer that service";
+  try{
+    var productType = event.currentIntent.slots.productType,
+    service = "We don't offer that service";
 
-console.log("serviceType", serviceType);
+    console.log("productType", productType);
 
-      if(serviceType != null){
-        const createOrder = await createBCOrder(serviceType);
-        console.log("createOrder", createOrder);
-      }else{
+    if(productType !== null){
+      const createOrder = await createBCOrder(productType);
+      console.log("createOrder", createOrder);
 
-        console.log("failed", failed);
+      
+      callback(null, {
+        "dialogAction": {
+          "type": "Close",
+          "fulfillmentState": "Fulfilled",
+          "message": {
+            "contentType": "PlainText",
+            "content": "Order Compeleted, We will see you shortly"
+          }
+        }
       }
+    }
 
-  callback(null, {
-    "dialogAction": {
-      "type": "Close",
-      "fulfillmentState": "Fulfilled",
-      "message": {
-        "contentType": "PlainText",
-        "content": "Lex Testing"
+  } catch (error){
+    callback(null, {
+      "dialogAction": {
+        "type": "Close",
+        "fulfillmentState": "Fulfilled",
+        "message": {
+          "contentType": "PlainText",
+          "content": "Your card was declined"
+        }
       }
     }
   }
+
 
 );
 
