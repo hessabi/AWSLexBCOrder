@@ -21,12 +21,25 @@ async function createBCOrder(product) {
       "X-Auth-Token": process.env.BC_TOKEN
     },
     body: {
-      {
-        "status_id": 0,
-        "customer_id": 11,
-        "billing_address": {
+      
+      "status_id": 0,
+      "customer_id": 11,
+      "billing_address": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "street_1": "123 Main Street",
+        "city": "Austin",
+        "state": "Texas",
+        "zip": "78751",
+        "country": "United States",
+        "country_iso2": "US",
+        "email": "janedoe@email.com"
+      },
+      "shipping_addresses": [
+        {
           "first_name": "Jane",
           "last_name": "Doe",
+          "company": "Acme Pty Ltd",
           "street_1": "123 Main Street",
           "city": "Austin",
           "state": "Texas",
@@ -34,30 +47,17 @@ async function createBCOrder(product) {
           "country": "United States",
           "country_iso2": "US",
           "email": "janedoe@email.com"
-        },
-        "shipping_addresses": [
-          {
-            "first_name": "Jane",
-            "last_name": "Doe",
-            "company": "Acme Pty Ltd",
-            "street_1": "123 Main Street",
-            "city": "Austin",
-            "state": "Texas",
-            "zip": "78751",
-            "country": "United States",
-            "country_iso2": "US",
-            "email": "janedoe@email.com"
-          }
-        ],
-        "products": [
-          {
-            "name": product,
-            "quantity": 1,
-            "price_inc_tax": 10.98,
-            "price_ex_tax": 10
-          }
-        ]
-      }
+        }
+      ],
+      "products": [
+        {
+          "name": product,
+          "quantity": 1,
+          "price_inc_tax": 10.98,
+          "price_ex_tax": 10
+        }
+      ]
+
     }
   };
   var transactionData = await request(options);
@@ -78,7 +78,7 @@ module.exports.lexbcOrder = async function (event, context, callback) => {
       const createOrder = await createBCOrder(productType);
       console.log("createOrder", createOrder);
 
-      
+
       callback(null, {
         "dialogAction": {
           "type": "Close",

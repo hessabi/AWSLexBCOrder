@@ -3,7 +3,7 @@ provider:
   name: aws
   runtime: nodejs10.x
 functions:
-  stripeManager:
+  LexbcOrder:
     handler: handler.lexbcOrder
     environment:
       STORE_HASH: qr7vc8lai3
