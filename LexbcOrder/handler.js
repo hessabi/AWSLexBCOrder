@@ -64,6 +64,7 @@ module.exports.lexbcOrder = async (event, context, callback) => {
 
     console.log("productType", productType);
 
+    if(productType == "Motor Oil"){
       const createOrder = await createBCOrder(productType);
       console.log("createOrder", createOrder);
 
@@ -78,7 +79,9 @@ module.exports.lexbcOrder = async (event, context, callback) => {
           }
         }
       })
-
+    }else {
+      console.log("If statement failed");
+    }
 
 
   } catch (err) {
