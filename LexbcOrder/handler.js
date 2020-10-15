@@ -61,49 +61,7 @@ async function createBCOrder() {
 
     console.log("resData",resData);
     return resData;
-
-    // var body =
-    // {
-    //     "status_id": 8,
-    //     "customer_id": 1,
-    //     "billing_address": {
-    //       "first_name": "Amir",
-    //       "last_name": "Hessabi",
-    //       "street_1": "123 Main Street",
-    //       "city": "Austin",
-    //       "state": "Texas",
-    //       "zip": "78751",
-    //       "country": "United States",
-    //       "country_iso2": "US",
-    //       "email": "amir.hessabi@bigcommerce.com"
-    //     },
-    //     "shipping_addresses": [
-    //       {
-    //         "first_name": "Amir",
-    //         "last_name": "Hessabi",
-    //         "company": "BigCommerce",
-    //         "street_1": "123 Main Street",
-    //         "city": "Austin",
-    //         "state": "Texas",
-    //         "zip": "78751",
-    //         "country": "United States",
-    //         "country_iso2": "US",
-    //         "email": "amir.hessabi@bigcommerce.com"
-    //       }
-    //     ],
-    //     "products": [
-    //       {
-    //         "product_id": 112,
-    //         "quantity": 2
-    //       }
-    //     ]
-    //   }
-    //   console.log(body)
-    // const resData = await bigCommerce.post('/orders', {body})
-    // console.log(body)
-    // console.log("resData",resData);
-    //
-    // return resData;
+    
   } catch(err){
     console.error(err);
   }
