@@ -1,15 +1,6 @@
 "use strict";
 const request = require("request-promise");
-const BigCommerce = require("node-bigcommerce");
 
-const bigCommerce = new BigCommerce({
-  logLevel: "info",
-  clientId: process.env.BC_CLIENT,
-  accessToken: process.env.BC_TOKEN,
-  storeHash: process.env.STORE_HASH,
-  responseType: "json",
-  apiVersion: "v2"
-});
 
 async function createBCOrder(product) {
   const options = {
@@ -21,7 +12,7 @@ async function createBCOrder(product) {
       "X-Auth-Token": process.env.BC_TOKEN
     },
     body: {
-      
+
       "status_id": 0,
       "customer_id": 11,
       "billing_address": {
@@ -66,11 +57,10 @@ async function createBCOrder(product) {
 }
 
 
-module.exports.lexbcOrder = async function (event, context, callback) => {
+module.exports.lexbcOrder = async (event, context, callback) => {
 
   try{
-    var productType = event.currentIntent.slots.productType,
-    service = "We don't offer that service";
+    var productType = event.currentIntent.slots.productType;
 
     console.log("productType", productType);
 
@@ -88,10 +78,11 @@ module.exports.lexbcOrder = async function (event, context, callback) => {
             "content": "Order Compeleted, We will see you shortly"
           }
         }
-      }
+      })
     }
 
-  } catch (error){
+
+  } catch (error) {
     callback(null, {
       "dialogAction": {
         "type": "Close",
@@ -101,11 +92,8 @@ module.exports.lexbcOrder = async function (event, context, callback) => {
           "content": "Your card was declined"
         }
       }
-    }
+    })
   }
-
-
-);
 
 
 
