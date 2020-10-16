@@ -1,0 +1,11 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "https://valvoline-poc.mybigcommerce.com",
+  "accessToken": "61w0ukmo7mi2n0opy2v8jbwzdwaudsi",
+  "port": 3000
+}
