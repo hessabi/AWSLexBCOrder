@@ -61,7 +61,7 @@ async function createBCOrder() {
 
     console.log("resData",resData);
     return resData;
-    
+
   } catch(err){
     console.error(err);
   }
@@ -88,7 +88,7 @@ module.exports.lexbcOrder = async (event, context, callback) => {
           "fulfillmentState": "Fulfilled",
           "message": {
             "contentType": "PlainText",
-            "content": "Order Compeleted, We will see you shortly"
+            "content": "Order Completed, We will see you shortly"
           }
         }
       })
