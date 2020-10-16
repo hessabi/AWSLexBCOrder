@@ -1,15 +1,5 @@
 "use strict";
-//const BigCommerce = require("node-bigcommerce");
 const request = require("request-promise");
-
-// const bigCommerce = new BigCommerce({
-//   logLevel: "info",
-//   clientId: process.env.BC_CLIENT,
-//   accessToken: process.env.BC_TOKEN,
-//   storeHash: process.env.STORE_HASH,
-//   responseType: "json",
-//   apiVersion: "v2"
-// });
 
 async function createBCOrder() {
 
