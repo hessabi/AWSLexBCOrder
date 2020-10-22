@@ -11,8 +11,8 @@ the AWS Lex Chat bot is able to make orders on BigCommerce by triggering this ap
 ## Contributing
 
 Amir Hessabi
-George FitzGibbons @gje4 - Thank you for the serverless app starter 
-Chancellor Clark @chanceaclark - Code Review 
+George FitzGibbons - Thank you for the serverless app starter 
+Chancellor Clark - Code Review 
 
 
 ### Running the project
@@ -27,7 +27,8 @@ You will need to have +v10 node.
 
 You will need Serverless
 
-```https://serverless.com/
+```
+https://serverless.com/
 
 In this example the serverless.yml is configured for AWS.
 https://serverless.com/framework/docs/providers/aws/guide/installation/
@@ -50,29 +51,30 @@ environment:
 
 Now run to set up
 
-```bash
+```
+bash
 npm install
 ```
 
 Now you're ready to deploy
 
-```bash
-cd lexbcOrder
+```
+bash
+cd LexbcOrder
 sls deploy
 ```
-### Now that you have deployed your function to the AWS Lambda
-Do the following steps: 
+### Now that you have deployed your function to the AWS Lambda Do the following steps: 
 
-### Create a Lex Chat bot
+### Step 1 Create a Lex Chat bot
 
 Follow the instructions on: 
 https://docs.aws.amazon.com/lex/latest/dg/gs-bp-create-bot.html
 
 Point the lex bot fulfilment method to the function on your AWS Labmda. 
 
-### Presenting the chat box
+### Step 2 Presenting the chat box
 
-``` Step 1
+## Step 2a
 
 You will need to Go to your Amazon Cognito
 
@@ -85,7 +87,7 @@ Then "Create Pool"
 
 Copy the "Identity pool ID" and use it in the next step 
 
-``` Step 2
+## Step 2b
 
 The easiest way to test drive the chatbot UI is to deploy it using the AWS CloudFormation templates provided by this project. Once you have launched the CloudFormation stack, you will get a fully working demo site hosted in your account.
 
@@ -94,8 +96,5 @@ https://github.com/aws-samples/aws-lex-web-ui#getting-started
 Launch the Stack and go through the creation prcess
 
 Use the "WebAppUrl" to interacte with the bot. 
-
-
-
 
 ```

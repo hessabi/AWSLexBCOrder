@@ -18,31 +18,31 @@ async function createBCOrder(product_id) {
 
       {
         status_id: 8,
-        customer_id: 1,
+        customer_id: 2,
         billing_address:
         {
-          first_name: 'Amir',
-          last_name: 'Hessabi',
+          first_name: 'Hailey',
+          last_name: 'Morris',
           street_1: '123 Main Street',
           city: 'Austin',
           state: 'Texas',
           zip: '78751',
           country: 'United States',
           country_iso2: 'US',
-          email: 'amir.hessabi@bigcommerce.com'
+          email: 'hailey.morris@AwesomeCompany.com'
         },
         shipping_addresses:
           [{
-            first_name: 'Amir',
-            last_name: 'Hessabi',
-            company: 'BigCommerce',
+            first_name: 'Hailey',
+            last_name: 'Morris',
+            company: 'Awesome Company',
             street_1: '123 Main Street',
             city: 'Austin',
             state: 'Texas',
             zip: '78751',
             country: 'United States',
             country_iso2: 'US',
-            email: 'amir.hessabi@bigcommerce.com'
+            email: 'hailey.morris@AwesomeCompany.com'
           }],
         products: [{
           product_id: product_id,
